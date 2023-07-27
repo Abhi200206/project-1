@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Welcome, <span id="username"></span>!</h1>
+    <p>Email: <span id="email"></span></p>
+    <p>Name: <span id="Name"> </span></p>
+    <!-- Add other user details here, if needed -->
+
+    <script>
+        // Parse query parameters to get the username and email and display them on the page
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const email = urlParams.get('email');
+        const Name = urlParams.get('Name');
+        document.getElementById('username').textContent = username;
+        document.getElementById('email').textContent = email;
+        document.getElementById('Name').textContent = Name;
+    </script>
+</body>
+</html>
