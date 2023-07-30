@@ -1,25 +1,20 @@
-// app.js (or index.js, depending on your project structure)
+
 const express = require('express');
 const app = express();
 var mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
-
-// Serve static files from the "public" directory
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 const url=__dirname ;
-// Define routes
 app.get('/', (req, res) => {
-  // Render the "index.html" file when someone accesses the root URL '/'
   res.sendFile(url+'/public/index.html');
 });
 app.get('/login.html', (req, res) => {
-  // Render the "index.html" file when someone accesses the root URL '/'
   res.sendFile(__dirname+'/public/login.html');
 });
 app.get('/signup.html', (req, res) => {
-  // Render the "index.html" file when someone accesses the root URL '/'
+
   res.sendFile(url+'/public/signup.html');
 });
 app.post('/submit-form',(req,res)=>{
@@ -43,7 +38,7 @@ app.post('/submit-form',(req,res)=>{
       throw err;
       console.log("Result:", result);
       if (result.length === 0) {
-        // No user found with the given credentials
+        
         res.send('Invalid username or password');
       } else {
         const user = result[0];
@@ -97,8 +92,8 @@ app.get('/user.html',(req,res)=> {
 });
 
 
-// Start the server
-const port = 3000; // Choose any available port
+
+const port = 3000; 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
